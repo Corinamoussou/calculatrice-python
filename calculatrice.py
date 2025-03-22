@@ -1,38 +1,31 @@
 
 #programme calculatrice
 
-# Dictionnaire pour compter le nombre d'opérations
 operateur_count = {"+": 0, "-": 0, "*": 0, "/": 0, "**": 0, "%": 0}
 # Liste pour stocker les calculs
 calculs = []
 result = 0
 # tant que c'est vrai terminé l'opération
 while True:
-    a = input("entrer la valeur de a :")
+    a = input("entrer le premier nombre ou 'exit' pour quitter :")
     if a.lower() == "exit":
         print("opération terminé")
         break
-    b = input("entrer la valeur de b :")
-    if a.lower() == "exit":
-        print("opération terminé")
-        break
+    b = input("entrer le deuxième nombre :")
     operateur = input("entrer un operateur entre (+, -, *, **, /, %) :")
-    if operateur.lower == "exit":
-        print("opération terminé")
-        break
     try:
 
 #convertion des entrés en decimal
         a, b = float(a), float (b)
 #Si l'operateur inclut dans la liste d'operateur est "/" ou "%" et b=0, renvoyer une erreur.
         if operateur in operateur_count : 
-            if operateur == "/" and b == 0:
-                raise ZeroDivisionError("Erreur : division par zero impossoble")
-            if operateur == "%" and b == 0:
-                raise ZeroDivisionError("Erreur : division par zero impossoble")   
-                
+            if operateur == "/":
+                if b == 0 :
+                   print("erreur : division par Zero impossible")
+                   continue
+                result = a/b                
 #exécuter le calcule         
-            if operateur == "+":
+            elif operateur == "+":
                 result = a + b
             elif operateur == "-":
                 result = a - b
