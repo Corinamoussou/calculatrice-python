@@ -32,7 +32,6 @@ while True:
                 result = a / b
             elif operateur == "%":
                 result = a % b
-# Stockage du calcul
             calculs.append(f"{a} {operateur} {b} = {result}")
             operateur_count[operateur] += 1 
 #affichege des opérations, l'historique et le nombre de fois 
