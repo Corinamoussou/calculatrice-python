@@ -2,10 +2,9 @@
 #programme calculatrice
 
 operateur_count = {"+": 0, "-": 0, "*": 0, "/": 0, "**": 0, "%": 0}
-# Liste pour stocker les calculs
 calculs = []
 result = 0
-# tant que c'est vrai terminé l'opération
+
 while True:
     a = input("entrer le premier nombre ou 'exit' pour quitter :")
     if a.lower() == "exit":
@@ -14,17 +13,13 @@ while True:
     b = input("entrer le deuxième nombre :")
     operateur = input("entrer un operateur entre (+, -, *, **, /, %) :")
     try:
-
-#convertion des entrés en decimal
         a, b = float(a), float (b)
-#Si l'operateur inclut dans la liste d'operateur est "/" ou "%" et b=0, renvoyer une erreur.
         if operateur in operateur_count : 
-            if operateur == "/":
+            if operateur == "/" or "%":
                 if b == 0 :
-                   print("erreur : division par Zero impossible")
+                   print(f"erreur : {operateur} par Zero impossible")
                    continue
-                result = a/b                
-#exécuter le calcule         
+                result = a/b                       
             elif operateur == "+":
                 result = a + b
             elif operateur == "-":
@@ -48,8 +43,6 @@ while True:
             print("Erreur : entrez un opérateur valide parmi (+, -, *, /, **, %).")
             
     except ValueError:
-        print("Erreur : veuillez entrer des nombres valides.")
-    except ZeroDivisionError as e:
-        print(e)    
-    
+        print("Erreur : veuillez entrer des nombres valides.")   
+
     
